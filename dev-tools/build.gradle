@@ -1,0 +1,74 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+}
+
+android {
+    compileSdk versions.compileSdk
+
+    defaultConfig {
+        minSdk versions.minSdk
+        targetSdk versions.targetSdk
+        versionCode 1
+        versionName "0.0.1"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion versions.compose
+        kotlinCompilerVersion versions.kotlin
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.coroutinueCore
+    implementation deps.kotlin.coroutinueAndroid
+    implementation deps.kotlin.json
+    implementation deps.log
+
+    implementation deps.jetpack.core_ktx
+    implementation deps.jetpack.activity_ktx
+
+    implementation deps.compose.ui
+    implementation deps.compose.material
+    implementation deps.compose.ui_tooling_preview
+    implementation deps.compose.activity
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
+
+apply from: '../gradle/publish.gradle'
+publishConfig([
+        groupId      : 'com.github.foodiestudio',
+        artifactId   : archivesBaseName,
+        versionNumber: android.defaultConfig.versionName,
+        githubRepo   : "foodiestudio/dev-tools",
+])
