@@ -1,15 +1,14 @@
 plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-    id 'org.jetbrains.kotlin.plugin.serialization'
+    alias libs.plugins.android.library
+    alias libs.plugins.kotlin.android
 }
 
 android {
-    compileSdk versions.compileSdk
+    compileSdk 33
 
     defaultConfig {
-        minSdk versions.minSdk
-        targetSdk versions.targetSdk
+        minSdk 21
+        targetSdk 33
         versionCode 1
         versionName "0.0.1"
 
@@ -29,14 +28,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
-        useIR = true
     }
     buildFeatures {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion versions.compose
-        kotlinCompilerVersion versions.kotlin
+        kotlinCompilerExtensionVersion libs.versions.composeCompiler.get()
     }
     packagingOptions {
         resources {
@@ -46,19 +43,10 @@ android {
 }
 
 dependencies {
-    implementation deps.kotlin.stdlib
-    implementation deps.kotlin.coroutinueCore
-    implementation deps.kotlin.coroutinueAndroid
-    implementation deps.kotlin.json
-    implementation deps.log
-
-    implementation deps.jetpack.core_ktx
-    implementation deps.jetpack.activity_ktx
-
-    implementation deps.compose.ui
-    implementation deps.compose.material
-    implementation deps.compose.ui_tooling_preview
-    implementation deps.compose.activity
+    implementation libs.bundles.jetpack
+    def composeBom = platform(libs.compose.bom)
+    implementation(composeBom)
+    implementation libs.bundles.compose
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
