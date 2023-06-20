@@ -2,10 +2,10 @@ package com.github.foodiestudio.devtools
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.core.content.pm.ShortcutManagerCompat
 import androidx.core.graphics.drawable.IconCompat
+import com.github.foodiestudio.devtools.ui.MainActivity
 
 object DevToolsManager {
 
@@ -22,10 +22,9 @@ object DevToolsManager {
             .setShortLabel("Dev Tools")
             .setIcon(IconCompat.createWithResource(context, R.drawable.ic_dev_tools_shotcut))
             .setIntent(
-                Intent(
-                    Intent.ACTION_VIEW,
-                    Uri.parse("https://github.com/foodiestudio/dev-tools")
-                )
+                Intent(context, MainActivity::class.java).apply {
+                    action = Intent.ACTION_VIEW
+                }
             )
             .build()
 
