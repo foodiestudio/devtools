@@ -1,7 +1,7 @@
 # application version catalog v0.2.0
 [versions]
 # plugin
-agp = "7.4.0"
+agp = "7.4.2"
 ksp = "1.8.0-1.0.8"
 sqldelight = "1.5.4"
 lintTool = "30.2.0"
