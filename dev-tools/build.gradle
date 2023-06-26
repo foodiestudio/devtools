@@ -1,6 +1,7 @@
 plugins {
-    alias libs.plugins.android.library
-    alias libs.plugins.kotlin.android
+    alias sharedLibs.plugins.android.library
+    alias sharedLibs.plugins.kotlin.android
+    id("maven-publish")
 }
 
 android {
@@ -31,7 +32,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion libs.versions.composeCompiler.get()
+        kotlinCompilerExtensionVersion sharedLibs.versions.compose.compiler.get()
     }
     packagingOptions {
         resources {
@@ -42,20 +43,13 @@ android {
 }
 
 dependencies {
-    def composeBom = platform(libs.compose.bom)
+    def composeBom = platform(sharedLibs.compose.bom)
     implementation(composeBom)
-    implementation libs.bundles.compose
+    implementation sharedLibs.bundles.compose
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.30.1")
 
-    testImplementation libs.junit
+    testImplementation sharedLibs.junit
 }
 
-def versionNumber = "0.1.0-SNAPSHOT"
-
-apply from: '../gradle/publish.gradle'
-publishConfig([
-        groupId      : 'com.github.foodiestudio',
-        artifactId   : archivesBaseName,
-        versionNumber: versionNumber,
-        githubRepo   : "foodiestudio/dev-tools",
-])
+group = "com.github.foodiestudio"
+version = "0.1.0-SNAPSHOT"
