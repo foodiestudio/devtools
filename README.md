@@ -31,7 +31,7 @@ DevToolsManager.init(applicationContext)
 // e.g. ~/open-source/foodiestudio/dev-tools
 includeBuild("/your_path_contain_this_project") {
     dependencySubstitution {
-        substitute(module("com.github.foodiestudio:dev-tools")).using(project(":dev-tools"))
+        substitute(module("com.github.foodiestudio:dev-tools"))
     }
 }
 ```
