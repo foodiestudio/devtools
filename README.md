@@ -22,9 +22,16 @@ TODO
 DevToolsManager.init(applicationContext)
 ```
 
-### 构建说明
-当前仓库不包含 app 模块，需要在根目录下的 local.properties 声明 application 所在的路径
+### 集成调试
+> 具体可参考 [gradle 文档](https://docs.gradle.org/current/samples/sample_composite_builds_declared_substitutions.html) 
 
-```
-appShell=~/Projects/android-application
+在主工程里 `setting.gradle.kts` 里临时集成，替换具体的版本
+
+```kotlin
+// e.g. ~/open-source/foodiestudio/dev-tools
+includeBuild("/your_path_contain_this_project") {
+    dependencySubstitution {
+        substitute(module("com.github.foodiestudio:dev-tools")).using(project(":dev-tools"))
+    }
+}
 ```
