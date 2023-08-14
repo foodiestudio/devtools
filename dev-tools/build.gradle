@@ -46,7 +46,8 @@ dependencies {
     def composeBom = platform(sharedLibs.compose.bom)
     implementation(composeBom)
     implementation sharedLibs.bundles.compose
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.30.1")
+    implementation sharedLibs.accompanist.systemuicontroller
+    api sharedLibs.startup
 
     testImplementation sharedLibs.junit
 }

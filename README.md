@@ -5,15 +5,20 @@
 TODO
 
 #### 初始化说明
-注册了 content provider 的方式，隐式的完成了初始化，所以属于开箱即用。
+注册了 [App Startup](https://developer.android.com/topic/libraries/app-startup#kts) 的初始化组件的方式，隐式的完成了初始化，所以属于开箱即用。
 
 不过，你也可以通过 `tools:node="remove"` 方式的方式禁用。
 
 ```xml
-<provider
-    android:authorities="${applicationId}.DevToolsInitProvider"
-    android:name=".DevToolsInitProvider"
-    tools:node="remove"/>
+ <provider
+    android:name="androidx.startup.InitializationProvider"
+    android:authorities="${applicationId}.androidx-startup"
+    android:exported="false"
+    tools:node="merge">
+    <meta-data
+        android:name="com.github.foodiestudio.devtools.DevToolsInitializer"
+        tools:node="remove" />
+</provider>
 ```
 
 然后手动调用初始化。
