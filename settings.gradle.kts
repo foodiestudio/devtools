@@ -16,6 +16,8 @@ dependencyResolutionManagement {
     versionCatalogs {
         create("sharedLibs") {
             from("io.github.foodiestudio:libs-versions:2023.01.00")
+            library("startup", "androidx.startup:startup-runtime:1.1.1")
+            library("accompanist-systemuicontroller", "com.google.accompanist:accompanist-systemuicontroller:0.30.1")
         }
     }
 }
