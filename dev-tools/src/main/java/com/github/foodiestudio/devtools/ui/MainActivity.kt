@@ -10,6 +10,9 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 class MainActivity : ComponentActivity() {
@@ -31,10 +34,15 @@ class MainActivity : ComponentActivity() {
             MaterialTheme(
                 colors = lightColors(
                     primary = Color.DarkGray,
-                    background = Color.DarkGray
+                    background = Color.LightGray
                 )
             ) {
-                MainScreen()
+                val navController = rememberNavController()
+
+                NavHost(navController = navController, startDestination = "/") {
+                    composable("/") { MainScreen(navController) }
+                    composable("/storage") { AppFilesScreen() }
+                }
             }
         }
     }

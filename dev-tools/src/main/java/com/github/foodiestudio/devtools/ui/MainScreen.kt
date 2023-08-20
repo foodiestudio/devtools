@@ -3,9 +3,10 @@ package com.github.foodiestudio.devtools.ui
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Button
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
@@ -16,11 +17,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.github.foodiestudio.devtools.R
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun MainScreen() {
+fun MainScreen(navigator: NavHostController) {
     val context = LocalContext.current
     Scaffold(
         topBar = {
@@ -45,10 +47,24 @@ fun MainScreen() {
                 })
         },
         content = { paddingValues ->
-            Column(Modifier.padding(paddingValues)) {
-//                Button(onClick = {}) {
-                Text("Hello")
-//                }
+            Column(
+                Modifier
+                    .padding(paddingValues)
+                    .padding(16.dp)
+            ) {
+                Button(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    onClick = {
+                        navigator.navigate("/storage")
+                    }
+                ) {
+                    Text(
+                        text = "View App Storage",
+                            Modifier
+                            .padding(vertical = 32.dp)
+                    )
+                }
             }
         }
     )
