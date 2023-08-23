@@ -46,7 +46,7 @@ fun MainScreen(navigator: NavHostController) {
                         context.startActivity(
                             Intent(
                                 Intent.ACTION_VIEW,
-                                Uri.parse("https://github.com/foodiestudio/dev-tools")
+                                Uri.parse("https://github.com/foodiestudio/dev-tools/issues")
                             )
                         )
                     }) {
