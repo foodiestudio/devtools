@@ -4,18 +4,28 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
+import com.google.accompanist.navigation.material.ModalBottomSheetLayout
+import com.google.accompanist.navigation.material.bottomSheet
+import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterialNavigationApi::class, ExperimentalMaterialApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -37,11 +47,22 @@ class MainActivity : ComponentActivity() {
                     background = Color.LightGray
                 )
             ) {
-                val navController = rememberNavController()
-
-                NavHost(navController = navController, startDestination = "/") {
-                    composable("/") { MainScreen(navController) }
-                    composable("/storage") { AppFilesScreen() }
+                val bottomSheetNavigator = rememberBottomSheetNavigator()
+                val navController = rememberNavController(bottomSheetNavigator)
+                ModalBottomSheetLayout(
+                    bottomSheetNavigator,
+                    sheetShape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
+                ) {
+                    NavHost(navController = navController, startDestination = "/") {
+                        composable("/") { MainScreen(navController) }
+                        composable("/storage") { AppFilesScreen() }
+                        bottomSheet(route = "/kibana") {
+                            KibanaQuerySheet(
+                                Modifier
+                                    .fillMaxSize()
+                            )
+                        }
+                    }
                 }
             }
         }
