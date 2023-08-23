@@ -49,6 +49,7 @@ dependencies {
     implementation(composeBom)
     implementation(sharedLibs.bundles.compose)
     implementation(sharedLibs.accompanist.systemuicontroller)
+    implementation(sharedLibs.accompanist.navigation.material)
     implementation(sharedLibs.okio)
     implementation(sharedLibs.navigation)
     api(sharedLibs.startup)
