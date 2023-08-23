@@ -25,6 +25,8 @@ import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 class MainActivity : ComponentActivity() {
+
+    private val blueGrey700 = Color(0xFF455A64)
     @OptIn(ExperimentalMaterialNavigationApi::class, ExperimentalMaterialApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,13 +39,13 @@ class MainActivity : ComponentActivity() {
             val systemUiController = rememberSystemUiController()
             val useDarkIcons = !isSystemInDarkTheme()
             DisposableEffect(systemUiController, useDarkIcons) {
-                systemUiController.setStatusBarColor(color = Color.DarkGray)
-                systemUiController.setNavigationBarColor(color = Color.DarkGray)
+                systemUiController.setStatusBarColor(color = blueGrey700)
+                systemUiController.setNavigationBarColor(color = Color.Transparent)
                 onDispose {}
             }
             MaterialTheme(
                 colors = lightColors(
-                    primary = Color.DarkGray,
+                    primary = blueGrey700,
                     background = Color.LightGray
                 )
             ) {
