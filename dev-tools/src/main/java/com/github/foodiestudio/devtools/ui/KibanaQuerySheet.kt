@@ -4,6 +4,7 @@ import android.util.Patterns
 import android.view.KeyEvent.ACTION_DOWN
 import android.webkit.URLUtil
 import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -19,13 +20,16 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.OutlinedButton
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Numbers
 import androidx.compose.material.icons.filled.RemoveCircleOutline
@@ -97,7 +101,7 @@ fun KibanaQuerySheet(modifier: Modifier) {
                 contentAlignment = Alignment.CenterEnd
             ) {
                 Text(
-                    text = "\uD83D\uDCCE Kibana Query Builder",
+                    text = "Kibana Query",
                     style = MaterialTheme.typography.h5,
                     modifier = Modifier
                         .padding(vertical = 12.dp)
@@ -105,7 +109,9 @@ fun KibanaQuerySheet(modifier: Modifier) {
                 )
                 if (fieldMatched) {
                     Button(onClick = {
-                        siteUrlIsValid = URLUtil.isValidUrl(siteUrl) && Patterns.WEB_URL.matcher(siteUrl).matches()
+                        siteUrlIsValid =
+                            URLUtil.isValidUrl(siteUrl) && Patterns.WEB_URL.matcher(siteUrl)
+                                .matches()
                         if (!siteUrlIsValid) {
                             return@Button
                         }
@@ -159,7 +165,9 @@ fun KibanaQuerySheet(modifier: Modifier) {
                         siteUrlIsValid = if (it.isFocused) {
                             true
                         } else {
-                            URLUtil.isValidUrl(siteUrl) && Patterns.WEB_URL.matcher(siteUrl).matches()
+                            URLUtil.isValidUrl(siteUrl) && Patterns.WEB_URL
+                                .matcher(siteUrl)
+                                .matches()
                         }
                     },
                 singleLine = true,
@@ -215,7 +223,7 @@ fun KibanaQuerySheet(modifier: Modifier) {
             ) {
                 Text(
                     text = "Filters",
-                    style = MaterialTheme.typography.h6,
+                    style = MaterialTheme.typography.subtitle1,
                     modifier = Modifier
                         .weight(1f)
                         .padding(top = 8.dp)
@@ -234,17 +242,21 @@ fun KibanaQuerySheet(modifier: Modifier) {
             })
         }
         item {
-            Button(
+            OutlinedButton(
                 onClick = {
                     filters = filters.toMutableList().apply {
                         add(FilterParam())
                     }
                 },
-                Modifier
+                border = BorderStroke(
+                    ButtonDefaults.OutlinedBorderSize,
+                    MaterialTheme.colors.primary.copy(alpha = 0.6f)
+                ),
+                modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 4.dp)
             ) {
-                Icon(Icons.Default.Add, null)
+                Icon(Icons.Default.AddCircle, null)
                 Text(text = "New filter param", Modifier.padding(start = 4.dp))
             }
         }
@@ -301,7 +313,11 @@ private fun FilterValueItem(
                 onUpdate(param.copy(value = it))
             })
         IconButton(onClick = onDelete, modifier = Modifier.size(24.dp)) {
-            Icon(imageVector = Icons.Default.RemoveCircleOutline, contentDescription = null)
+            Icon(
+                imageVector = Icons.Default.RemoveCircleOutline,
+                contentDescription = null,
+                tint = MaterialTheme.colors.primary
+            )
         }
     }
 }
