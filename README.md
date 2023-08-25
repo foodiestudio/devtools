@@ -16,7 +16,7 @@ TODO
     android:exported="false"
     tools:node="merge">
     <meta-data
-        android:name="com.github.foodiestudio.devtools.DevToolsInitializer"
+        android:name="${applicationId}.DevToolsInitializer"
         tools:node="remove" />
 </provider>
 ```
