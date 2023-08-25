@@ -10,7 +10,7 @@ TODO
 不过，你也可以通过 `tools:node="remove"` 方式的方式禁用。
 
 ```xml
- <provider
+<provider
     android:name="androidx.startup.InitializationProvider"
     android:authorities="${applicationId}.androidx-startup"
     android:exported="false"

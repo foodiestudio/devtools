@@ -1,4 +1,4 @@
-package com.github.foodiestudio.devtools.ui
+package com.github.foodiestudio.devtools.internal.ui
 
 import android.content.Context
 import android.content.Intent
@@ -26,17 +26,15 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.github.foodiestudio.devtools.DevToolsManager
 import com.github.foodiestudio.devtools.R
 
 @Composable
 fun MainScreen(navigator: NavHostController) {
     val context = LocalContext.current
 
-    val map = remember {
-        mapOf(
-            "/storage" to "View App Storage",
-            "/kibana" to "Kibana Query Builder"
-        )
+    val map: Map<String, String> = remember {
+        DevToolsManager.widgets.associate { it.route to it.displayName }
     }
 
     Scaffold(
@@ -44,8 +42,8 @@ fun MainScreen(navigator: NavHostController) {
             TopAppBar(
                 title = {
                     Column {
-                        Text("DevTools")
-                        Text(text = context.getAppName(), style = MaterialTheme.typography.caption)
+                        Text(text = context.getAppName())
+                        Text("DevTools", style = MaterialTheme.typography.caption)
                     }
                 },
                 modifier = Modifier.statusBarsPadding(),
