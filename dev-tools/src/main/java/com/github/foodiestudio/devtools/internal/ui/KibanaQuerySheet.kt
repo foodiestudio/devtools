@@ -1,4 +1,4 @@
-package com.github.foodiestudio.devtools.ui
+package com.github.foodiestudio.devtools.internal.ui
 
 import android.util.Patterns
 import android.view.KeyEvent.ACTION_DOWN
@@ -28,7 +28,6 @@ import androidx.compose.material.OutlinedButton
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Numbers

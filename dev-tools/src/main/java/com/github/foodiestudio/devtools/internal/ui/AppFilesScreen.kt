@@ -1,4 +1,4 @@
-package com.github.foodiestudio.devtools.ui
+package com.github.foodiestudio.devtools.internal.ui
 
 import android.content.Context
 import android.content.Intent
@@ -52,7 +52,7 @@ import java.io.File
 import java.sql.Timestamp
 
 @Composable
-fun AppFilesScreen() {
+internal fun AppFilesScreen() {
     var navStack: List<BreadcrumbItem> by remember {
         mutableStateOf(listOf(BreadcrumbItem.Root))
     }
