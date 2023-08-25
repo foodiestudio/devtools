@@ -6,7 +6,8 @@
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
             android:exported="false">
-            <meta-data  android:name="com.github.foodiestudio.devtools.DevToolsInitializer"
+            <meta-data
+                android:name="${applicationId}.DevToolsInitializer"
                 android:value="androidx.startup" />
         </provider>
 
@@ -18,8 +19,7 @@
         <provider
             android:name=".internal.DevToolsFileProvider"
             android:authorities="${applicationId}.fileprovider"
-            android:grantUriPermissions="true"
-            android:exported="false">
-        </provider>
+            android:exported="false"
+            android:grantUriPermissions="true" />
     </application>
 </manifest>
