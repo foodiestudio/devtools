@@ -40,3 +40,22 @@ includeBuild("/your_path_contain_this_project") {
     }
 }
 ```
+
+对于没有发布的版本，可以使用 [source dependencies](https://blog.gradle.org/introducing-source-dependencies) 方式依赖，效果等同于 includeBuild
+
+```kotlin
+// settings.gradle.kts
+sourceControl {
+    gitRepository(uri("https://github.com/foodiestudio/dev-tools.git")) {
+        producesModule("com.github.foodiestudio:dev-tools")
+    }
+}
+
+// build.gradle.kts
+debugImplementation("com.github.foodiestudio:dev-tools") {
+    version {
+        // branch
+        branch = "pre-release/0.1.0" 
+    }
+}
+```
