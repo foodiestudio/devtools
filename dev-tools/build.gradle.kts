@@ -32,6 +32,8 @@ android {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
     buildFeatures {
+        buildConfig = false
+        aidl = false
         compose = true
     }
     composeOptions {
