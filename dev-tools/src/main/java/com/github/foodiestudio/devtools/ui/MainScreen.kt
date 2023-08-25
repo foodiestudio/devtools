@@ -1,8 +1,10 @@
 package com.github.foodiestudio.devtools.ui
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -12,6 +14,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
@@ -39,7 +42,12 @@ fun MainScreen(navigator: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("DevTools") },
+                title = {
+                    Column {
+                        Text("DevTools")
+                        Text(text = context.getAppName(), style = MaterialTheme.typography.caption)
+                    }
+                },
                 modifier = Modifier.statusBarsPadding(),
                 actions = {
                     IconButton(onClick = {
@@ -85,3 +93,5 @@ fun MainScreen(navigator: NavHostController) {
         }
     )
 }
+
+private fun Context.getAppName(): String = applicationInfo.loadLabel(packageManager).toString()
