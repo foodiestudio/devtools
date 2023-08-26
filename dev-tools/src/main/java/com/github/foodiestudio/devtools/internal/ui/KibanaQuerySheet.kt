@@ -59,24 +59,30 @@ import com.github.foodiestudio.devtools.kibana.kibanaQuery
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun KibanaQuerySheet(modifier: Modifier) {
+fun KibanaQuerySheet(
+    modifier: Modifier,
+    kibanaBaseUrl: String = "",
+    kibanaIndex: String = "",
+    filterParams: List<Pair<String, String>> = emptyList()
+) {
     val clipboardManager = LocalClipboardManager.current
     val focusManager = LocalFocusManager.current
     val context = LocalContext.current
 
     var siteUrl by remember {
-        mutableStateOf("https://")
+        mutableStateOf(kibanaBaseUrl)
     }
     var siteUrlIsValid by remember {
         mutableStateOf(true)
     }
 
     var index by remember {
-        mutableStateOf("")
+        mutableStateOf(kibanaIndex)
     }
 
     var filters by remember {
-        mutableStateOf(emptyList<FilterParam>())
+        mutableStateOf(filterParams.takeIf { it.isNotEmpty() }
+            ?.map { FilterParam(it.first, it.second) } ?: emptyList())
     }
 
     val fieldMatched by remember {
