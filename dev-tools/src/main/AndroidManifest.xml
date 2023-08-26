@@ -7,7 +7,7 @@
             android:authorities="${applicationId}.androidx-startup"
             android:exported="false">
             <meta-data
-                android:name="${applicationId}.DevToolsInitializer"
+                android:name="com.github.foodiestudio.devtools.DevToolsInitializer"
                 android:value="androidx.startup" />
         </provider>
 

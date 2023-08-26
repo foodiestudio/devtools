@@ -10,7 +10,10 @@ class DevToolsInitializer : Initializer<Unit> {
         DevToolsManager.init(
             context.applicationContext, listOf(
                 AppStorageWidget(),
-                KibanaQueryWidget()
+                KibanaQueryWidget(
+                    defaultUrl = "https://",
+                    defaultIndex = "",
+                )
             )
         )
     }
