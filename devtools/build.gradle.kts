@@ -65,7 +65,7 @@ dependencies {
 }
 
 group = "com.github.foodiestudio"
-version = "0.1.0-SNAPSHOT"
+version = "0.1.0-beta1"
 
 publishing {
     publications {
