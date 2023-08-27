@@ -1,13 +1,29 @@
 ## dev tools
-> 当前版本：`TODO` 
+[![](https://jitpack.io/v/foodiestudio/devtools.svg)](https://jitpack.io/#foodiestudio/devtools)
 
-### 开始使用
-TODO
+### Getting Started
+```kotlin
+// settings.gradle.kts
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        //...
+        maven("https://jitpack.io")
+    }
+}
 
-#### 初始化说明
-注册了 [App Startup](https://developer.android.com/topic/libraries/app-startup#kts) 的初始化组件的方式，隐式的完成了初始化，所以属于开箱即用。
+// build.gradle.kts
+dependencies {
+    debugImplementation("com.github.foodiestudio:devtools:$version")
+}
+```
 
-不过，你也可以通过 `tools:node="remove"` 方式的方式禁用。
+#### Initialization Instructions
+The initialization component is registered through [App Startup](https://developer.android.com/topic/libraries/app-startup#kts) and is implicitly initialized, making it a plug-and-play tool.
+
+However, you can also disable it using the `tools:node="remove"` method.
 
 ```xml
 <provider
@@ -21,16 +37,16 @@ TODO
 </provider>
 ```
 
-然后手动调用初始化。
+Then manually call the initialization method.
 
 ```kotlin
 DevToolsManager.init(applicationContext)
 ```
 
-### 集成调试
-> 具体可参考 [gradle 文档](https://docs.gradle.org/current/samples/sample_composite_builds_declared_substitutions.html) 
+### Integrated Debugging
+> Please refer to the [Gradle documentation](https://docs.gradle.org/current/samples/sample_composite_builds_declared_substitutions.html) for more information.
 
-在主工程里 `setting.gradle.kts` 里临时集成，替换具体的版本
+Temporarily integrate into the main project's `setting.gradle.kts`, and replace the specific version.
 
 ```kotlin
 // e.g. ~/open-source/foodiestudio/devtools
@@ -41,7 +57,7 @@ includeBuild("/your_path_contain_this_project") {
 }
 ```
 
-对于没有发布的版本，可以使用 [source dependencies](https://blog.gradle.org/introducing-source-dependencies) 方式依赖，效果等同于 includeBuild
+For unpublished versions, you can use the [source dependencies](https://blog.gradle.org/introducing-source-dependencies) method to replace the includeBuild, which produces the same result.
 
 ```kotlin
 // settings.gradle.kts
