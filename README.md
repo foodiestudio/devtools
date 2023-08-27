@@ -33,10 +33,10 @@ DevToolsManager.init(applicationContext)
 在主工程里 `setting.gradle.kts` 里临时集成，替换具体的版本
 
 ```kotlin
-// e.g. ~/open-source/foodiestudio/dev-tools
+// e.g. ~/open-source/foodiestudio/devtools
 includeBuild("/your_path_contain_this_project") {
     dependencySubstitution {
-        substitute(module("com.github.foodiestudio:dev-tools"))
+        substitute(module("com.github.foodiestudio:devtools"))
     }
 }
 ```
@@ -46,13 +46,13 @@ includeBuild("/your_path_contain_this_project") {
 ```kotlin
 // settings.gradle.kts
 sourceControl {
-    gitRepository(uri("https://github.com/foodiestudio/dev-tools.git")) {
-        producesModule("com.github.foodiestudio:dev-tools")
+    gitRepository(uri("https://github.com/foodiestudio/devtools.git")) {
+        producesModule("com.github.foodiestudio:devtools")
     }
 }
 
 // build.gradle.kts
-debugImplementation("com.github.foodiestudio:dev-tools") {
+debugImplementation("com.github.foodiestudio:devtools") {
     version {
         // branch
         branch = "pre-release/0.1.0" 

@@ -26,4 +26,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "DevTools"
-include(":dev-tools")
+include(":devtools")

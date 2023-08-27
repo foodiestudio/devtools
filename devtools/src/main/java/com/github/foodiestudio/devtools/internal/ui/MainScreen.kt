@@ -72,7 +72,7 @@ fun MainScreen(navigator: NavHostController) {
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 contentPadding = PaddingValues(vertical = 16.dp)
             ) {
-                items(map.entries.toList()) { (route, displayName) ->
+                items(map.entries.toList(), key = { it.key }) { (route, displayName) ->
                     Button(
                         modifier = Modifier
                             .fillMaxWidth(),
