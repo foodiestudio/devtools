@@ -54,11 +54,10 @@ android {
 dependencies {
     val composeBom = platform(sharedLibs.compose.bom)
     implementation(composeBom)
-    implementation(sharedLibs.bundles.compose)
+    implementation(sharedLibs.bundles.compose.core)
     implementation(sharedLibs.accompanist.systemuicontroller)
     implementation(sharedLibs.accompanist.navigation.material)
     implementation(sharedLibs.okio)
-    implementation(sharedLibs.navigation)
     api(sharedLibs.startup)
 
     testImplementation(sharedLibs.junit)
