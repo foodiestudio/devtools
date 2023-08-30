@@ -59,7 +59,7 @@ import com.github.foodiestudio.devtools.kibana.kibanaQuery
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun KibanaQuerySheet(
+internal fun KibanaQuerySheet(
     modifier: Modifier,
     kibanaBaseUrl: String = "",
     kibanaIndex: String = "",

@@ -30,7 +30,7 @@ import com.github.foodiestudio.devtools.DevToolsManager
 import com.github.foodiestudio.devtools.R
 
 @Composable
-fun MainScreen(navigator: NavHostController) {
+internal fun MainScreen(navigator: NavHostController) {
     val context = LocalContext.current
 
     val map: Map<String, String> = remember {
