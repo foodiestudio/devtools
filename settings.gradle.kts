@@ -15,7 +15,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("sharedLibs") {
-            from("io.github.foodiestudio:libs-versions:2023.04.00")
+            from("io.github.foodiestudio:libs-versions:2023.04.01")
             library("startup", "androidx.startup:startup-runtime:1.1.1")
             val accompanistVersion = "0.30.1"
             library("accompanist-systemuicontroller", "com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion")
