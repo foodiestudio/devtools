@@ -2,7 +2,6 @@ package com.github.foodiestudio.devtools.internal.ui
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -25,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import androidx.navigation.NavHostController
 import com.github.foodiestudio.devtools.DevToolsManager
 import com.github.foodiestudio.devtools.R
@@ -52,7 +52,7 @@ internal fun MainScreen(navigator: NavHostController) {
                         context.startActivity(
                             Intent(
                                 Intent.ACTION_VIEW,
-                                Uri.parse("https://github.com/foodiestudio/dev-tools/issues")
+                                "https://github.com/foodiestudio/devtools/issues".toUri()
                             )
                         )
                     }) {
