@@ -2,9 +2,7 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 // https://github.com/gradle/gradle/issues/22797
 plugins {
-    alias(sharedLibs.plugins.android.application) apply false
-    alias(sharedLibs.plugins.android.library) apply false
-    alias(sharedLibs.plugins.kotlin.android) apply false
+    id("foodiestudio.android.library.compose") apply false
     alias(sharedLibs.plugins.sqldelight) apply false
 }
 

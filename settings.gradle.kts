@@ -3,6 +3,14 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        maven("https://jitpack.io")
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id.startsWith("foodiestudio")) {
+                useModule("com.github.foodiestudio:convention-plugins:0.3.0")
+            }
+        }
     }
 }
 
