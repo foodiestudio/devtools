@@ -20,7 +20,7 @@ dependencyResolutionManagement {
             val accompanistVersion = "0.30.1"
             library("accompanist-systemuicontroller", "com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion")
             library("accompanist-navigation-material", "com.google.accompanist:accompanist-navigation-material:$accompanistVersion")
-            library("okio", "com.squareup.okio:okio:3.3.0")
+            library("okio", "com.squareup.okio:okio:3.7.0")
         }
     }
 }
