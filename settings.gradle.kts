@@ -8,8 +8,8 @@ pluginManagement {
     resolutionStrategy {
         eachPlugin {
             if (requested.id.id.startsWith("foodiestudio")) {
-                // convention-plugins:0.3.2 依赖 libs-versions:2023.05.00，
-                useModule("com.github.foodiestudio:convention-plugins:0.3.2")
+                // convention-plugins:0.4.0 依赖 libs-versions:2023.08.01，
+                useModule("com.github.foodiestudio:convention-plugins:0.4.0")
             }
         }
     }
@@ -24,7 +24,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("sharedLibs") {
-            from("io.github.foodiestudio:libs-versions:2023.05.00")
+            from("io.github.foodiestudio:libs-versions:2023.08.01")
         }
     }
 }
