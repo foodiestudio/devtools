@@ -1,22 +1,39 @@
-@Suppress("DSL_SCOPE_VIOLATION")
-// https://github.com/gradle/gradle/issues/22797
+import com.android.build.api.dsl.LibraryDefaultConfig
+
 plugins {
-    id("foodiestudio.android.library.compose")
+    // debug only
+    val launchAsApplication = false
+
+    if (launchAsApplication) {
+        id("foodiestudio.android.application.compose")
+    } else {
+        id("foodiestudio.android.library.compose")
+    }
     id("maven-publish")
 }
+
+val launchAsApplication = project.plugins.findPlugin("foodiestudio.android.library.compose") == null
 
 android {
     namespace = "com.github.foodiestudio.devtools"
 
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+
+        if (!launchAsApplication) {
+            (this as LibraryDefaultConfig).consumerProguardFiles("consumer-rules.pro")
+        }
     }
 
     buildTypes {
-        getByName("release") {
+        release {
             isMinifyEnabled = false
-            setProguardFiles(listOf(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"))
+            setProguardFiles(
+                listOf(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+                )
+            )
         }
     }
     publishing {
@@ -32,8 +49,11 @@ dependencies {
     implementation(sharedLibs.accompanist.navigation.material)
     implementation(sharedLibs.okio)
     api(sharedLibs.startup)
-
     testImplementation(sharedLibs.junit)
+    // debugOnly
+    debugImplementation(sharedLibs.activity.compose)
+    debugImplementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    debugImplementation(sharedLibs.compose.material)
 }
 
 group = "com.github.foodiestudio"
