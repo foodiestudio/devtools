@@ -2,6 +2,10 @@ package com.github.foodiestudio.devtools.internal.ui
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.basicMarquee
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -24,11 +28,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.core.content.pm.PackageInfoCompat
 import androidx.core.net.toUri
 import androidx.navigation.NavHostController
 import com.github.foodiestudio.devtools.DevToolsManager
 import com.github.foodiestudio.devtools.R
 
+
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 internal fun MainScreen(navigator: NavHostController) {
     val context = LocalContext.current
@@ -42,8 +49,26 @@ internal fun MainScreen(navigator: NavHostController) {
             TopAppBar(
                 title = {
                     Column {
+                        val versionCode = PackageInfoCompat.getLongVersionCode(
+                            context.packageManager.getPackageInfo(
+                                context.packageName,
+                                0
+                            )
+                        )
+                        val versionName = context.packageManager.getPackageInfo(
+                            context.packageName,
+                            0
+                        ).versionName
+                        val targetSdkVersion = context.packageManager.getApplicationInfo(
+                            context.packageName,
+                            0
+                        ).targetSdkVersion
                         Text(text = context.getAppName())
-                        Text("DevTools", style = MaterialTheme.typography.caption)
+                        Text(
+                            modifier = Modifier.basicMarquee(),
+                            text = "Version: $versionName($versionCode) Target SDK: $targetSdkVersion",
+                            style = MaterialTheme.typography.caption
+                        )
                     }
                 },
                 modifier = Modifier.statusBarsPadding(),
