@@ -33,6 +33,7 @@ import androidx.compose.material.icons.filled.ArrowRight
 import androidx.compose.material.icons.filled.Folder
 import androidx.compose.material.icons.filled.FolderOpen
 import androidx.compose.material.icons.filled.InsertDriveFile
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
@@ -108,6 +109,30 @@ internal fun AppFilesScreen() {
                     .navigationBarsPadding()
                     .padding(paddingValues),
                 fileList,
+                onShare = {
+                    val uri =
+                        FileProvider.getUriForFile(
+                            context,
+                            context.packageName + ".fileprovider",
+                            it
+                        )
+                    val mime: String =
+                        context.contentResolver.getType(uri) ?: MimeTypeMap.getSingleton()
+                            .getMimeTypeFromExtension(it.extension) ?: "*/*"
+
+                    runCatching {
+                        Intent().apply {
+                            action = Intent.ACTION_SEND
+                            type = mime
+                            putExtra(Intent.EXTRA_STREAM, uri)
+                            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                            context.startActivity(this)
+                        }
+                    }.onFailure { err ->
+                        Toast.makeText(context, err.message, Toast.LENGTH_SHORT).show()
+                        err.printStackTrace()
+                    }
+                },
                 onItemClick = {
                     if (it.isDirectory) {
                         navStack = navStack.toMutableList().apply {
@@ -194,6 +219,7 @@ private fun FileList(
     modifier: Modifier,
     fileList: List<File>,
     onItemClick: (File) -> Unit,
+    onShare: (File) -> Unit
 ) {
     if (fileList.isEmpty()) {
         NoFiles(modifier)
@@ -223,6 +249,13 @@ private fun FileList(
                         Text(text = Timestamp(it.lastModified()).toString())
                     }
                 } else null,
+                trailing = if (!it.isDirectory) {
+                    @Composable {
+                        IconButton(onClick = { onShare(it) }) {
+                            Icon(Icons.Filled.Share, "share")
+                        }
+                    }
+                } else null
             )
         }
     }
