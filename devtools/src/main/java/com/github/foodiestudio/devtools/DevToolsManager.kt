@@ -21,6 +21,7 @@ object DevToolsManager {
         if (initialized) {
             return
         }
+        xcrash.XCrash.init(context)
         this.widgets = widgets
         val shortcut = ShortcutInfoCompat.Builder(context, "id-dev-tools")
             .setShortLabel("Dev Tools")

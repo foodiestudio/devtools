@@ -20,7 +20,7 @@ class SampleActivity : ComponentActivity() {
 
 @Composable
 private fun Content(modifier: Modifier = Modifier) {
-    Button(onClick = { /*TODO*/ }) {
-        Text(text = "Hello")
+    Button(onClick = { TODO("test") }) {
+        Text(text = "throw Error")
     }
 }
