@@ -53,7 +53,7 @@ dependencies {
     testImplementation(sharedLibs.junit)
     // debugOnly
     debugImplementation(sharedLibs.activity.compose)
-    debugImplementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    debugImplementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     debugImplementation(sharedLibs.compose.material)
 }
 
