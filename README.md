@@ -1,6 +1,9 @@
 ## dev tools
 [![](https://jitpack.io/v/foodiestudio/devtools.svg)](https://jitpack.io/#foodiestudio/devtools)
 
+### Preview
+<p><img src="art/entry.jpeg" width="32%" /> <img src="art/app_storage.jpeg" width="32%" /> <img src="art/kibana.jpeg" width="32%" />
+
 ### Getting Started
 ```kotlin
 // settings.gradle.kts
