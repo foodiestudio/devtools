@@ -24,7 +24,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("sharedLibs") {
-            from("io.github.foodiestudio:libs-versions:2023.08.01")
+            from("io.github.foodiestudio:libs-versions:2023.09.02")
         }
     }
 }
