@@ -9,7 +9,7 @@ pluginManagement {
         eachPlugin {
             if (requested.id.id.startsWith("foodiestudio")) {
                 // convention-plugins:0.4.0 依赖 libs-versions:2023.08.01，
-                useModule("com.github.foodiestudio:convention-plugins:0.4.0")
+                useModule("com.github.foodiestudio:convention-plugins:0.5.2")
             }
         }
     }
