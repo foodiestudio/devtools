@@ -319,7 +319,7 @@ private sealed class BreadcrumbItem(
 private fun Breadcrumbs(
     modifier: Modifier, items: List<BreadcrumbItem>, onItemSelected: (BreadcrumbItem) -> Unit
 ) {
-    var selectedIndex by remember(items.size) {
+    var selectedIndex by remember(items) {
         mutableStateOf(items.lastIndex)
     }
 
