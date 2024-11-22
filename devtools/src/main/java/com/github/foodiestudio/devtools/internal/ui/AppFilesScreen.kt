@@ -36,8 +36,10 @@ import androidx.compose.material.icons.filled.InsertDriveFile
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -319,8 +321,8 @@ private sealed class BreadcrumbItem(
 private fun Breadcrumbs(
     modifier: Modifier, items: List<BreadcrumbItem>, onItemSelected: (BreadcrumbItem) -> Unit
 ) {
-    var selectedIndex by remember(items) {
-        mutableStateOf(items.lastIndex)
+    var selectedIndex by remember {
+        mutableIntStateOf(items.lastIndex)
     }
 
     ScrollableTabRow(modifier = modifier.fillMaxWidth(),
@@ -344,4 +346,8 @@ private fun Breadcrumbs(
                 })
             }
         })
+
+    LaunchedEffect(items.size) {
+        selectedIndex = items.lastIndex
+    }
 }
