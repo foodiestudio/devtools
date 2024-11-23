@@ -8,13 +8,7 @@ import com.github.foodiestudio.devtools.widget.KibanaQueryWidget
 class DevToolsInitializer : Initializer<Unit> {
     override fun create(context: Context) {
         DevToolsManager.init(
-            context.applicationContext, listOf(
-                AppStorageWidget(),
-                KibanaQueryWidget(
-                    defaultUrl = "https://",
-                    defaultIndex = "",
-                )
-            )
+            context.applicationContext, listOf(AppStorageWidget())
         )
     }
 
