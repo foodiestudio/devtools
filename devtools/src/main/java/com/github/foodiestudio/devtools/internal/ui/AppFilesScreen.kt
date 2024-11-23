@@ -25,6 +25,8 @@ import androidx.compose.material.ListItem
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScrollableTabRow
 import androidx.compose.material.Tab
+import androidx.compose.material.TabRowDefaults
+import androidx.compose.material.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
@@ -36,13 +38,11 @@ import androidx.compose.material.icons.filled.InsertDriveFile
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -56,14 +56,12 @@ import java.sql.Timestamp
 
 @Composable
 internal fun AppFilesScreen() {
-    var navStack: List<BreadcrumbItem> by remember {
-        mutableStateOf(listOf(BreadcrumbItem.Root))
+    val navStack = remember {
+        mutableStateListOf<BreadcrumbItem>(BreadcrumbItem.Root)
     }
 
     BackHandler(navStack.size > 1) {
-        navStack = navStack.toMutableList().apply {
-            removeLast()
-        }
+        navStack.removeAt(navStack.lastIndex)
     }
 
     val current by remember {
@@ -88,22 +86,15 @@ internal fun AppFilesScreen() {
             }, navigationIcon = {
                 BackNavButton()
             })
-            Breadcrumbs(Modifier, navStack) { item ->
-                if (item != current) {
-                    val index = navStack.indexOfFirst {
-                        it == item
-                    }
-                    navStack = navStack.take(index + 1)
-                }
+            Breadcrumbs(Modifier, navStack) { index ->
+                navStack.removeRange(index + 1, navStack.size)
             }
         }
     }, content = { paddingValues ->
         // 如果是根目录的话，
         if (current == BreadcrumbItem.Root) {
             AppStorage(Modifier.navigationBarsPadding()) { nav ->
-                navStack = navStack.toMutableList().apply {
-                    add(nav)
-                }
+                navStack.add(nav)
             }
         } else {
             FileList(
@@ -137,9 +128,7 @@ internal fun AppFilesScreen() {
                 },
                 onItemClick = {
                     if (it.isDirectory) {
-                        navStack = navStack.toMutableList().apply {
-                            add(BreadcrumbItem.Regular(it))
-                        }
+                        navStack.add(BreadcrumbItem.Regular(it))
                     } else {
                         runCatching {
                             val uri =
@@ -319,20 +308,29 @@ private sealed class BreadcrumbItem(
 
 @Composable
 private fun Breadcrumbs(
-    modifier: Modifier, items: List<BreadcrumbItem>, onItemSelected: (BreadcrumbItem) -> Unit
+    modifier: Modifier,
+    items: List<BreadcrumbItem>,
+    onItemSelected: (index: Int) -> Unit
 ) {
-    var selectedIndex by remember {
-        mutableIntStateOf(items.lastIndex)
-    }
+    val selectedTabIndex by remember(items.size) { mutableIntStateOf(items.lastIndex) }
 
     ScrollableTabRow(modifier = modifier.fillMaxWidth(),
-        selectedTabIndex = selectedIndex,
+        selectedTabIndex = selectedTabIndex,
+        edgePadding = 16.dp,
         divider = {},
+        indicator = { tabPositions ->
+            // 不清楚为什么在不同 compose 版本下，tabPositions 会出现越界
+            // workaround: index out of bounds
+            TabRowDefaults.Indicator(
+                Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex.coerceAtMost(tabPositions.lastIndex)])
+            )
+        },
         tabs = {
             items.forEachIndexed { tabIndex, tab ->
-                Tab(selected = selectedIndex == tabIndex, onClick = {
-                    onItemSelected(tab)
-                    selectedIndex = tabIndex
+                Tab(selected = selectedTabIndex == tabIndex, onClick = {
+                    if (tabIndex != selectedTabIndex) {
+                        onItemSelected(tabIndex)
+                    }
                 }, text = {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(text = tab.displayName)
@@ -346,8 +344,4 @@ private fun Breadcrumbs(
                 })
             }
         })
-
-    LaunchedEffect(items.size) {
-        selectedIndex = items.lastIndex
-    }
 }
