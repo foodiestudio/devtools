@@ -1,16 +1,9 @@
 import com.android.build.api.dsl.LibraryExtension
 
-interface ScaffoldPluginExtension {
-    val launchAsApplication: Property<Boolean>
-    val namespace: Property<String>
-}
-
-val scaffold = extensions.create<ScaffoldPluginExtension>("scaffold")
-scaffold.launchAsApplication.convention(
+val launchAsApplication =
     project.findProperty("scaffold.launchAsApplication")?.toString()?.toBoolean() ?: false
-)
 
-if (scaffold.launchAsApplication.get()) {
+if (launchAsApplication) {
     apply(plugin = "foodiestudio.android.application.compose")
 } else {
     apply(plugin = "foodiestudio.android.library.compose")
