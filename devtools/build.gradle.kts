@@ -1,46 +1,5 @@
-import com.android.build.api.dsl.LibraryDefaultConfig
-
 plugins {
-    // debug only
-    val launchAsApplication = false
-
-    if (launchAsApplication) {
-        id("foodiestudio.android.application.compose")
-    } else {
-        id("foodiestudio.android.library.compose")
-    }
-    id("maven-publish")
-}
-
-val launchAsApplication = project.plugins.findPlugin("foodiestudio.android.library.compose") == null
-
-android {
-    namespace = "com.github.foodiestudio.devtools"
-
-    defaultConfig {
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        if (!launchAsApplication) {
-            (this as LibraryDefaultConfig).consumerProguardFiles("consumer-rules.pro")
-        }
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            setProguardFiles(
-                listOf(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
-                )
-            )
-        }
-    }
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-        }
-    }
+    id("scaffold")
 }
 
 dependencies {
@@ -55,17 +14,4 @@ dependencies {
     debugImplementation(sharedLibs.activity.compose)
     debugImplementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
     debugImplementation(sharedLibs.compose.material)
-}
-
-group = "com.github.foodiestudio"
-version = "0.1.8"
-
-publishing {
-    publications {
-        register<MavenPublication>("release") {
-            afterEvaluate {
-                from(components["release"])
-            }
-        }
-    }
 }
