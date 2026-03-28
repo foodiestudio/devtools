@@ -1,19 +1,12 @@
 import com.android.build.api.dsl.LibraryDefaultConfig
 
 plugins {
-    // debug only
-    val launchAsApplication = false
-
-    if (launchAsApplication) {
-        id("devtools.android.application")
-    } else {
-        id("devtools.android.library")
-    }
+    id("devtools.kmp.library")
     id("devtools.android.compose")
     id("maven-publish")
 }
 
-val launchAsApplication = project.plugins.findPlugin("devtools.android.library") == null
+val launchAsApplication = project.hasProperty("launchAsApplication") && project.property("launchAsApplication") == "true"
 
 android {
     namespace = "com.github.foodiestudio.devtools"
@@ -37,36 +30,41 @@ android {
             )
         }
     }
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
+}
+
+kotlin {
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation(libs.okio)
+            }
+        }
+        
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.bundles.compose.core)
+                implementation(libs.accompanist.systemuicontroller)
+                implementation(libs.accompanist.navigation.material)
+                implementation(libs.xcrash)
+                implementation(libs.startup)
+                implementation(libs.compose.material)
+            }
+        }
+        
+        val commonTest by getting {
+            dependencies {
+                implementation(libs.junit)
+            }
         }
     }
 }
 
 dependencies {
-    implementation(platform(libs.compose.bom))
-    implementation(libs.bundles.compose.core)
-    implementation(libs.accompanist.systemuicontroller)
-    implementation(libs.accompanist.navigation.material)
-    implementation(libs.okio)
-    implementation(libs.xcrash)
-    api(libs.startup)
-    testImplementation(libs.junit)
-    // debugOnly
     debugImplementation(libs.activity.compose)
-    debugImplementation(libs.compose.material)
 }
 
 group = "com.github.foodiestudio"
 version = "0.1.8"
 
-publishing {
-    publications {
-        register<MavenPublication>("release") {
-            afterEvaluate {
-                from(components["release"])
-            }
-        }
-    }
-}
+// Publishing for KMP is handled automatically by the KMP plugin.
+// The previous manual publishing block is incompatible with KMP layout.

@@ -19,8 +19,12 @@ internal fun Project.configureAndroidBase(
             targetCompatibility = JavaVersion.VERSION_17
         }
 
-        kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_17.toString()
+        // For KMP, kotlinOptions might not be available on the Android extension
+        // directly in the same way as the android-only plugin.
+        (this as? ExtensionAware)?.extensions?.findByName("kotlinOptions")?.let {
+            kotlinOptions {
+                jvmTarget = JavaVersion.VERSION_17.toString()
+            }
         }
     }
 }

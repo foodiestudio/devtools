@@ -12,17 +12,17 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Environment and Version Alignment' (Protocol in workflow.md)
 
 ## Phase 2: Convert `devtools` to Multiplatform
-- [ ] Task: Create `devtools.kmp.library` convention plugin.
-    - [ ] Add KMP plugin to `convention-plugins`.
-    - [ ] Configure `androidTarget` and basic `sourceSets`.
-- [ ] Task: Transition `devtools/build.gradle.kts` to KMP.
-    - [ ] Replace `devtools.android.library` with `devtools.kmp.library`.
-    - [ ] Configure KMP `sourceSets` (`commonMain`, `androidMain`).
-- [ ] Task: Reorganize source code directory structure.
-    - [ ] Move `src/main/java` to `src/androidMain/kotlin`.
-    - [ ] Move `src/main/res` to `src/androidMain/res`.
-    - [ ] Create `src/commonMain/kotlin`.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Convert devtools to Multiplatform' (Protocol in workflow.md)
+- [x] Task: Create `devtools.kmp.library` convention plugin.
+    - [x] Add KMP plugin to `convention-plugins`.
+    - [x] Configure `androidTarget` and basic `sourceSets`.
+- [x] Task: Transition `devtools/build.gradle.kts` to KMP.
+    - [x] Replace `devtools.android.library` with `devtools.kmp.library`.
+    - [x] Configure KMP `sourceSets` (`commonMain`, `androidMain`).
+- [x] Task: Reorganize source code directory structure.
+    - [x] Move `src/main/java` to `src/androidMain/kotlin`.
+    - [x] Move `src/main/res` to `src/androidMain/res`.
+    - [x] Create `src/commonMain/kotlin`.
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Convert devtools to Multiplatform' (Protocol in workflow.md)
 
 ## Phase 3: Migrate Compose and Dependencies
 - [ ] Task: Migrate imports from `androidx.compose` to KMP Compose.
