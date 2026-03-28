@@ -7,7 +7,7 @@
     - [x] Create the folder structure for the local convention plugins.
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Initialize Local Build Logic' (Protocol in workflow.md)
 
-## Phase 2: Implement Local Convention Plugins
+## Phase 2: Implement Local Convention Plugins [checkpoint: 584e869]
 - [x] Task: Implement the `com.android.application` convention plugin.
 - [x] Task: Implement the `com.android.library` convention plugin.
 - [x] Task: Implement the `org.jetbrains.kotlin.android` and Compose convention plugins.
