@@ -6,6 +6,7 @@ okio = "3.6.0"
 startup = "1.1.1"
 junit = "4.13.2"
 activity = "1.9.3"
+xcrash = "3.1.0"
 
 [libraries]
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
@@ -22,6 +23,7 @@ accompanist-systemuicontroller = { group = "com.google.accompanist", name = "acc
 accompanist-navigation-material = { group = "com.google.accompanist", name = "accompanist-navigation-material", version.ref = "accompanist" }
 okio = { group = "com.squareup.okio", name = "okio", version.ref = "okio" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+xcrash = { group = "com.iqiyi.xcrash", name = "xcrash-android-lib", version.ref = "xcrash" }
 
 [bundles]
 compose-core = ["compose-ui", "compose-ui-graphics", "compose-ui-tooling-preview", "compose-material-icons-extended", "compose-runtime-livedata", "compose-material"]

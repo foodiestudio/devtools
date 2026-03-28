@@ -22,8 +22,6 @@ dependencyResolutionManagement {
         mavenCentral()
         maven("https://jitpack.io")
     }
-    versionCatalogs {
-    }
 }
 rootProject.name = "DevTools"
 include(":devtools")
