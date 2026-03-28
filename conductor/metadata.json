@@ -1,0 +1,8 @@
+{
+  "track_id": "kmp_migration_20260328",
+  "type": "refactor",
+  "status": "new",
+  "created_at": "2026-03-28T18:30:00Z",
+  "updated_at": "2026-03-28T18:30:00Z",
+  "description": "Migrate to KMP from androidx androidx compose -> kmp compose (1.10.3) kotlin to 2.3.10 agp to 8.12.0 and other dependencies if needed"
+}
