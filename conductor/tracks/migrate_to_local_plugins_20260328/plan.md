@@ -1,0 +1,24 @@
+# Implementation Plan: Migrate to Local Convention Plugins
+
+## Phase 1: Initialize Local Build Logic
+- [ ] Task: Create a new module (e.g., `build-logic`) to host the convention plugins.
+    - [ ] Add the module to `settings.gradle.kts`.
+    - [ ] Configure `build-logic/build.gradle.kts` with the necessary dependencies (AGP, Kotlin, Compose).
+    - [ ] Create the folder structure for the local convention plugins.
+- [ ] Task: Conductor - User Manual Verification 'Phase 1: Initialize Local Build Logic' (Protocol in workflow.md)
+
+## Phase 2: Implement Local Convention Plugins
+- [ ] Task: Implement the `com.android.application` convention plugin.
+- [ ] Task: Implement the `com.android.library` convention plugin.
+- [ ] Task: Implement the `org.jetbrains.kotlin.android` and Compose convention plugins.
+- [ ] Task: Conductor - User Manual Verification 'Phase 2: Implement Local Convention Plugins' (Protocol in workflow.md)
+
+## Phase 3: Migrate Project to Local Plugins
+- [ ] Task: Update the root and module-level `build.gradle.kts` files to apply the new local plugins instead of the external ones.
+- [ ] Task: Remove all references to the external `foodiestudio` convention plugins.
+- [ ] Task: Conductor - User Manual Verification 'Phase 3: Migrate Project to Local Plugins' (Protocol in workflow.md)
+
+## Phase 4: Validation and Cleanup
+- [ ] Task: Perform a full clean and build to ensure all plugins are correctly applied and dependencies resolved.
+- [ ] Task: Run `./gradlew check` to verify the project's integrity and ensure no regressions.
+- [ ] Task: Conductor - User Manual Verification 'Phase 4: Validation and Cleanup' (Protocol in workflow.md)
