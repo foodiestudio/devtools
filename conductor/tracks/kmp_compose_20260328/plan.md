@@ -31,7 +31,7 @@ Refactor the main library module to use the new KMP Compose environment and fix 
     - [x] Test build as an application (`launchAsApplication = true`).
 - [~] **Task: Conductor - User Manual Verification 'Phase 2: devtools Module Migration' (Protocol in workflow.md)**
 
-## Phase 3: Validation and Finalization
+## Phase 3: Validation and Finalization [checkpoint: 769f0e2]
 Finalize the migration by ensuring all tests pass and the library is publishable.
 
 - [x] **Task: Run Unit Tests and Fix Regressions**
