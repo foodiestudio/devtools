@@ -5,14 +5,15 @@ plugins {
     val launchAsApplication = false
 
     if (launchAsApplication) {
-        id("foodiestudio.android.application.compose")
+        id("devtools.android.application")
     } else {
-        id("foodiestudio.android.library.compose")
+        id("devtools.android.library")
     }
+    id("devtools.android.compose")
     id("maven-publish")
 }
 
-val launchAsApplication = project.plugins.findPlugin("foodiestudio.android.library.compose") == null
+val launchAsApplication = project.plugins.findPlugin("devtools.android.library") == null
 
 android {
     namespace = "com.github.foodiestudio.devtools"

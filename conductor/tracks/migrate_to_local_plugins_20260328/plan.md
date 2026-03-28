@@ -14,9 +14,9 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Implement Local Convention Plugins' (Protocol in workflow.md)
 
 ## Phase 3: Migrate Project to Local Plugins
-- [ ] Task: Update the root and module-level `build.gradle.kts` files to apply the new local plugins instead of the external ones.
-- [ ] Task: Remove all references to the external `foodiestudio` convention plugins.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Migrate Project to Local Plugins' (Protocol in workflow.md)
+- [x] Task: Update the root and module-level `build.gradle.kts` files to apply the new local plugins instead of the external ones.
+- [x] Task: Remove all references to the external `foodiestudio` convention plugins.
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Migrate Project to Local Plugins' (Protocol in workflow.md)
 
 ## Phase 4: Validation and Cleanup
 - [ ] Task: Perform a full clean and build to ensure all plugins are correctly applied and dependencies resolved.
