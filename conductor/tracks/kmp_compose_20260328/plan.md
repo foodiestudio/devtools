@@ -1,6 +1,6 @@
 # Implementation Plan: KMP Compose Migration & Dependency Updates
 
-## Phase 1: Core Build Environment Migration
+## Phase 1: Core Build Environment Migration [checkpoint: f965905]
 This phase focuses on updating the build system and dependency catalog to support AGP 8.12.0, Kotlin 2.3.10, and Compose Multiplatform 1.10.3.
 
 - [x] **Task: Update Version Catalog (libs.versions.toml)**
