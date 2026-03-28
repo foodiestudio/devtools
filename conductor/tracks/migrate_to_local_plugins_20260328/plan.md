@@ -8,10 +8,10 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Initialize Local Build Logic' (Protocol in workflow.md)
 
 ## Phase 2: Implement Local Convention Plugins
-- [ ] Task: Implement the `com.android.application` convention plugin.
-- [ ] Task: Implement the `com.android.library` convention plugin.
-- [ ] Task: Implement the `org.jetbrains.kotlin.android` and Compose convention plugins.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Implement Local Convention Plugins' (Protocol in workflow.md)
+- [x] Task: Implement the `com.android.application` convention plugin.
+- [x] Task: Implement the `com.android.library` convention plugin.
+- [x] Task: Implement the `org.jetbrains.kotlin.android` and Compose convention plugins.
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Implement Local Convention Plugins' (Protocol in workflow.md)
 
 ## Phase 3: Migrate Project to Local Plugins
 - [ ] Task: Update the root and module-level `build.gradle.kts` files to apply the new local plugins instead of the external ones.
