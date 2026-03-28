@@ -1,6 +1,6 @@
 # Implementation Plan: KMP Migration and Dependency Upgrades
 
-## Phase 1: Environment and Version Alignment [checkpoint: 0c89341]
+## Phase 1: Environment and Version Alignment
 - [x] Task: Update `gradle/libs.versions.toml` with target versions.
     - [x] Set `agp = "8.12.0"`.
     - [x] Set `kotlin = "2.3.10"`.
