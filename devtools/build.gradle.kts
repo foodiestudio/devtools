@@ -22,7 +22,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         if (!launchAsApplication) {
-            (this as LibraryDefaultConfig).consumerProguardFiles("consumer-rules.pro")
+            consumerProguardFiles("consumer-rules.pro")
         }
     }
 

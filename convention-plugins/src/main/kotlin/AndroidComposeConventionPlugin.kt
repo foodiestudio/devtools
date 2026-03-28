@@ -7,6 +7,9 @@ import org.gradle.kotlin.dsl.findByType
 class AndroidComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
+            pluginManager.apply("org.jetbrains.kotlin.plugin.compose")
+            pluginManager.apply("org.jetbrains.compose")
+
             val extension = extensions.findByType<ApplicationExtension>()
                 ?: extensions.findByType<LibraryExtension>()
                 ?: error("Compose plugin applied to a non-Android project")
