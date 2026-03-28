@@ -24,7 +24,7 @@
     - [x] Create `src/commonMain/kotlin`.
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Convert devtools to Multiplatform' (Protocol in workflow.md)
 
-## Phase 3: Migrate Compose and Dependencies [checkpoint: 272f52d]
+## Phase 3: Migrate Compose and Dependencies
 - [x] Task: Migrate imports from `androidx.compose` to KMP Compose.
     - [x] Update UI components in `devtools` to use multiplatform Compose APIs.
 - [x] Task: Finalize dependency migration in `commonMain` and `androidMain`.
