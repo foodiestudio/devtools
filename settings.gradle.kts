@@ -25,3 +25,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "DevTools"
 include(":devtools")
+include(":build-logic")

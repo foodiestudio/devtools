@@ -1,11 +1,11 @@
 # Implementation Plan: Migrate to Local Convention Plugins
 
 ## Phase 1: Initialize Local Build Logic
-- [ ] Task: Create a new module (e.g., `build-logic`) to host the convention plugins.
-    - [ ] Add the module to `settings.gradle.kts`.
-    - [ ] Configure `build-logic/build.gradle.kts` with the necessary dependencies (AGP, Kotlin, Compose).
-    - [ ] Create the folder structure for the local convention plugins.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Initialize Local Build Logic' (Protocol in workflow.md)
+- [x] Task: Create a new module (e.g., `build-logic`) to host the convention plugins.
+    - [x] Add the module to `settings.gradle.kts`.
+    - [x] Configure `build-logic/build.gradle.kts` with the necessary dependencies (AGP, Kotlin, Compose).
+    - [x] Create the folder structure for the local convention plugins.
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Initialize Local Build Logic' (Protocol in workflow.md)
 
 ## Phase 2: Implement Local Convention Plugins
 - [ ] Task: Implement the `com.android.application` convention plugin.
