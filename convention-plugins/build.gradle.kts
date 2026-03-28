@@ -18,10 +18,6 @@ gradlePlugin {
             id = "devtools.android.compose"
             implementationClass = "AndroidComposeConventionPlugin"
         }
-        register("kmpLibrary") {
-            id = "devtools.kmp.library"
-            implementationClass = "AndroidMultiplatformConventionPlugin"
-        }
     }
 }
 
