@@ -25,11 +25,11 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Convert devtools to Multiplatform' (Protocol in workflow.md)
 
 ## Phase 3: Migrate Compose and Dependencies
-- [ ] Task: Migrate imports from `androidx.compose` to KMP Compose.
-    - [ ] Update UI components in `devtools` to use multiplatform Compose APIs.
-- [ ] Task: Finalize dependency migration in `commonMain` and `androidMain`.
-    - [ ] Ensure `Okio` and other utilities are correctly linked in `commonMain` or `androidMain`.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Migrate Compose and Dependencies' (Protocol in workflow.md)
+- [x] Task: Migrate imports from `androidx.compose` to KMP Compose.
+    - [x] Update UI components in `devtools` to use multiplatform Compose APIs.
+- [x] Task: Finalize dependency migration in `commonMain` and `androidMain`.
+    - [x] Ensure `Okio` and other utilities are correctly linked in `commonMain` or `androidMain`.
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Migrate Compose and Dependencies' (Protocol in workflow.md)
 
 ## Phase 4: Validation and Regression Testing
 - [ ] Task: Verify Android build integrity.
