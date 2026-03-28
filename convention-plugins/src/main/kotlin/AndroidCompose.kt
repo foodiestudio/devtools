@@ -14,18 +14,14 @@ internal fun Project.configureAndroidCompose(
             compose = true
         }
 
-        // Note: For Kotlin 2.0+, composeOptions.kotlinCompilerExtensionVersion is no longer used.
-        // The compose-compiler is now a Gradle plugin.
-        
+        composeOptions {
+            kotlinCompilerExtensionVersion = libs.findVersion("composeCompiler").get().toString()
+        }
+
         dependencies {
-            // JetBrains Compose dependencies will be handled in the KMP sourceSets
-            // but we keep the BOM for Android-specific parts if needed.
             val bom = libs.findLibrary("compose-bom").get()
             add("implementation", platform(bom))
             add("androidTestImplementation", platform(bom))
         }
     }
-    
-    // Apply the JetBrains Compose plugin
-    pluginManager.apply("org.jetbrains.compose")
 }

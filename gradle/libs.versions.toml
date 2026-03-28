@@ -1,21 +1,19 @@
 [versions]
 composeBom = "2023.10.01"
 composeCompiler = "1.5.3"
-composeMultiplatform = "1.10.3"
 accompanist = "0.32.0"
 okio = "3.6.0"
 startup = "1.1.1"
 junit = "4.13.2"
 activity = "1.9.3"
 xcrash = "3.1.0"
-agp = "8.12.0"
-kotlin = "2.3.10"
+agp = "8.1.0"
+kotlin = "1.9.10"
 
 [libraries]
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 compose-gradlePlugin = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }
-compose-multiplatform-gradlePlugin = { group = "org.jetbrains.compose", name = "compose-gradle-plugin", version.ref = "composeMultiplatform" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-compose-compiler = { group = "androidx.compose.compiler", name = "compiler", version.ref = "composeCompiler" }
 compose-ui = { group = "androidx.compose.ui", name = "ui" }

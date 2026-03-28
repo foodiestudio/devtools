@@ -24,5 +24,4 @@ gradlePlugin {
 dependencies {
     implementation(libs.android.gradlePlugin)
     implementation(libs.kotlin.gradlePlugin)
-    implementation(libs.compose.multiplatform.gradlePlugin)
 }
