@@ -4,6 +4,7 @@
 - **Kotlin:** Primary programming language.
 - **Android SDK:** Target platform.
 - **Gradle (Kotlin DSL):** Build system for project and dependency management.
+- **Local Convention Plugins:** Modular build logic defined in `convention-plugins/`.
 - **Local Version Catalog:** Dependency management using `gradle/libs.versions.toml`.
 
 ## UI Framework
