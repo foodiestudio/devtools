@@ -44,17 +44,18 @@ android {
 }
 
 dependencies {
-    implementation(sharedLibs.bundles.compose.core)
-    implementation(sharedLibs.accompanist.systemuicontroller)
-    implementation(sharedLibs.accompanist.navigation.material)
-    implementation(sharedLibs.okio)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.bundles.compose.core)
+    implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.accompanist.navigation.material)
+    implementation(libs.okio)
     implementation("com.iqiyi.xcrash:xcrash-android-lib:3.1.0")
-    api(sharedLibs.startup)
-    testImplementation(sharedLibs.junit)
+    api(libs.startup)
+    testImplementation(libs.junit)
     // debugOnly
-    debugImplementation(sharedLibs.activity.compose)
+    debugImplementation(libs.activity.compose)
     debugImplementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
-    debugImplementation(sharedLibs.compose.material)
+    debugImplementation(libs.compose.material)
 }
 
 group = "com.github.foodiestudio"

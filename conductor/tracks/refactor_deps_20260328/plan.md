@@ -16,12 +16,12 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Local Version Catalog Initialization' (Protocol in workflow.md)
 
 ## Phase 2: Transition to Local Catalog
-- [ ] Task: Update `settings.gradle.kts` to point to the local version catalog.
-    - [ ] Remove the `create("sharedLibs")` from the `versionCatalogs` block.
-    - [ ] Ensure the local catalog is correctly recognized (Gradle looks for `gradle/libs.versions.toml` by default).
-- [ ] Task: Update `devtools/build.gradle.kts` to use the local catalog.
-    - [ ] Replace `sharedLibs.*` references with `libs.*` references.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Transition to Local Catalog' (Protocol in workflow.md)
+- [x] Task: Update `settings.gradle.kts` to point to the local version catalog.
+    - [x] Remove the `create("sharedLibs")` from the `versionCatalogs` block.
+    - [x] Ensure the local catalog is correctly recognized (Gradle looks for `gradle/libs.versions.toml` by default).
+- [x] Task: Update `devtools/build.gradle.kts` to use the local catalog.
+    - [x] Replace `sharedLibs.*` references with `libs.*` references.
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Transition to Local Catalog' (Protocol in workflow.md)
 
 ## Phase 3: Validation and Finalization
 - [ ] Task: Validate dependency graph consistency.
