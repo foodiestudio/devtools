@@ -24,9 +24,9 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Transition to Local Catalog' (Protocol in workflow.md)
 
 ## Phase 3: Validation and Finalization
-- [ ] Task: Validate dependency graph consistency.
-    - [ ] Run `./gradlew :devtools:dependencies > post_refactor_deps.txt`.
-    - [ ] Compare `baseline_deps.txt` and `post_refactor_deps.txt` to ensure no differences.
-- [ ] Task: Final cleanup.
-    - [ ] Delete `baseline_deps.txt` and `post_refactor_deps.txt`.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Validation and Finalization' (Protocol in workflow.md)
+- [x] Task: Validate dependency graph consistency.
+    - [x] Run `./gradlew :devtools:dependencies > post_refactor_deps.txt`.
+    - [x] Compare `baseline_deps.txt` and `post_refactor_deps.txt` to ensure no differences.
+- [x] Task: Final cleanup.
+    - [x] Delete `baseline_deps.txt` and `post_refactor_deps.txt`.
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Validation and Finalization' (Protocol in workflow.md)
