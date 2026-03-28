@@ -49,12 +49,11 @@ dependencies {
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.accompanist.navigation.material)
     implementation(libs.okio)
-    implementation("com.iqiyi.xcrash:xcrash-android-lib:3.1.0")
+    implementation(libs.xcrash)
     api(libs.startup)
     testImplementation(libs.junit)
     // debugOnly
     debugImplementation(libs.activity.compose)
-    debugImplementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
     debugImplementation(libs.compose.material)
 }
 
