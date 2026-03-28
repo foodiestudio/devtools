@@ -30,11 +30,11 @@ import androidx.compose.material.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowRight
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowRight
+import androidx.compose.material.icons.automirrored.filled.InsertDriveFile
 import androidx.compose.material.icons.filled.Folder
 import androidx.compose.material.icons.filled.FolderOpen
-import androidx.compose.material.icons.filled.InsertDriveFile
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
@@ -161,7 +161,7 @@ internal fun AppFilesScreen() {
 private fun BackNavButton() {
     val onBackPressedDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
     IconButton(onClick = { onBackPressedDispatcher?.onBackPressed() }) {
-        Icon(imageVector = Icons.Default.ArrowBack, contentDescription = null)
+        Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
     }
 }
 
@@ -229,7 +229,7 @@ private fun FileList(
                             Icon(Icons.Filled.Folder, null)
                         }
 
-                        else -> Icon(Icons.Filled.InsertDriveFile, null)
+                        else -> Icon(Icons.AutoMirrored.Filled.InsertDriveFile, null)
                     }
                 },
                 text = {
@@ -260,7 +260,7 @@ private fun NoFiles(modifier: Modifier) {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Icon(
-                imageVector = Icons.Default.InsertDriveFile,
+                imageVector = Icons.AutoMirrored.Filled.InsertDriveFile,
                 contentDescription = null,
                 Modifier.size(148.dp)
             )
@@ -336,7 +336,7 @@ private fun Breadcrumbs(
                         Text(text = tab.displayName)
                         if (tabIndex != items.lastIndex) {
                             Icon(
-                                imageVector = Icons.Default.ArrowRight,
+                                imageVector = Icons.AutoMirrored.Filled.ArrowRight,
                                 contentDescription = null
                             )
                         }

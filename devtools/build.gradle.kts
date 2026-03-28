@@ -20,10 +20,6 @@ android {
 
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        if (!launchAsApplication) {
-            consumerProguardFiles("consumer-rules.pro")
-        }
     }
 
     buildTypes {
@@ -45,8 +41,15 @@ android {
 }
 
 dependencies {
-    implementation(platform(libs.compose.bom))
-    implementation(libs.bundles.compose.core)
+    val compose = (project.extensions.getByName("compose") as org.jetbrains.compose.ComposeExtension).dependencies
+    implementation(compose.runtime)
+    implementation(compose.foundation)
+    implementation(compose.material)
+    implementation(compose.ui)
+    implementation(compose.components.resources)
+    implementation(compose.components.uiToolingPreview)
+    implementation(libs.compose.multiplatform.material.icons.extended)
+
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.accompanist.navigation.material)
     implementation(libs.okio)
