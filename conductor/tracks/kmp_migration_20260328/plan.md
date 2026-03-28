@@ -1,15 +1,15 @@
 # Implementation Plan: KMP Migration and Dependency Upgrades
 
 ## Phase 1: Environment and Version Alignment
-- [ ] Task: Update `gradle/libs.versions.toml` with target versions.
-    - [ ] Set `agp = "8.12.0"`.
-    - [ ] Set `kotlin = "2.3.10"`.
-    - [ ] Set `compose = "1.10.3"`.
-    - [ ] Update other dependencies (Okio, etc.) to KMP-compatible versions.
-- [ ] Task: Update `convention-plugins` to support Kotlin 2.3.10 and AGP 8.12.0.
-    - [ ] Update `AndroidBase.kt` if needed for AGP 8.12.0 compatibility.
-    - [ ] Update `AndroidCompose.kt` to use JetBrains Compose plugin logic.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Environment and Version Alignment' (Protocol in workflow.md)
+- [x] Task: Update `gradle/libs.versions.toml` with target versions.
+    - [x] Set `agp = "8.12.0"`.
+    - [x] Set `kotlin = "2.3.10"`.
+    - [x] Set `compose = "1.10.3"`.
+    - [x] Update other dependencies (Okio, etc.) to KMP-compatible versions.
+- [x] Task: Update `convention-plugins` to support Kotlin 2.3.10 and AGP 8.12.0.
+    - [x] Update `AndroidBase.kt` if needed for AGP 8.12.0 compatibility.
+    - [x] Update `AndroidCompose.kt` to use JetBrains Compose plugin logic.
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Environment and Version Alignment' (Protocol in workflow.md)
 
 ## Phase 2: Convert `devtools` to Multiplatform
 - [ ] Task: Create `devtools.kmp.library` convention plugin.
