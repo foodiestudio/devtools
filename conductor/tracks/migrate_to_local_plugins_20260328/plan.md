@@ -13,7 +13,7 @@
 - [x] Task: Implement the `org.jetbrains.kotlin.android` and Compose convention plugins.
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Implement Local Convention Plugins' (Protocol in workflow.md)
 
-## Phase 3: Migrate Project to Local Plugins
+## Phase 3: Migrate Project to Local Plugins [checkpoint: c2397b3]
 - [x] Task: Update the root and module-level `build.gradle.kts` files to apply the new local plugins instead of the external ones.
 - [x] Task: Remove all references to the external `foodiestudio` convention plugins.
 - [x] Task: Conductor - User Manual Verification 'Phase 3: Migrate Project to Local Plugins' (Protocol in workflow.md)
