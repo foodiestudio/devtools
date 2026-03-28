@@ -18,7 +18,7 @@
 - [x] Task: Remove all references to the external `foodiestudio` convention plugins.
 - [x] Task: Conductor - User Manual Verification 'Phase 3: Migrate Project to Local Plugins' (Protocol in workflow.md)
 
-## Phase 4: Validation and Cleanup
+## Phase 4: Validation and Cleanup [checkpoint: ce33c74]
 - [x] Task: Perform a full clean and build to ensure all plugins are correctly applied and dependencies resolved.
 - [x] Task: Run `./gradlew check` to verify the project's integrity and ensure no regressions.
 - [x] Task: Conductor - User Manual Verification 'Phase 4: Validation and Cleanup' (Protocol in workflow.md)
