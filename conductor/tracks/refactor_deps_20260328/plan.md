@@ -1,10 +1,10 @@
 # Implementation Plan: Dependency Refactoring
 
 ## Phase 0: Baseline Capture
-- [ ] Task: Capture current dependencies baseline.
-    - [ ] Run `./gradlew :devtools:dependencies > baseline_deps.txt`
-    - [ ] Commit `baseline_deps.txt` (This is a temporary file for validation).
-- [ ] Task: Conductor - User Manual Verification 'Phase 0: Baseline Capture' (Protocol in workflow.md)
+- [x] Task: Capture current dependencies baseline.
+    - [x] Run `./gradlew :devtools:dependencies > baseline_deps.txt`
+    - [x] Commit `baseline_deps.txt` (This is a temporary file for validation).
+- [x] Task: Conductor - User Manual Verification 'Phase 0: Baseline Capture' (Protocol in workflow.md)
 
 ## Phase 1: Local Version Catalog Initialization
 - [ ] Task: Identify and extract dependencies from `sharedLibs`.
