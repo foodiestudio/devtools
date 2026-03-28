@@ -15,7 +15,7 @@
     - [x] Write identified versions and libraries to `gradle/libs.versions.toml`.
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Local Version Catalog Initialization' (Protocol in workflow.md)
 
-## Phase 2: Transition to Local Catalog
+## Phase 2: Transition to Local Catalog [checkpoint: 890f51f]
 - [x] Task: Update `settings.gradle.kts` to point to the local version catalog.
     - [x] Remove the `create("sharedLibs")` from the `versionCatalogs` block.
     - [x] Ensure the local catalog is correctly recognized (Gradle looks for `gradle/libs.versions.toml` by default).
