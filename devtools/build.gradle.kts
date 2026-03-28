@@ -58,7 +58,6 @@ dependencies {
     testImplementation(libs.junit)
     // debugOnly
     debugImplementation(libs.activity.compose)
-    debugImplementation(libs.compose.material)
 }
 
 group = "com.github.foodiestudio"

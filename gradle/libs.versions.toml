@@ -1,6 +1,4 @@
 [versions]
-composeBom = "2023.10.01"
-composeCompiler = "1.5.3"
 composeMultiplatform = "1.10.3"
 composeMaterialIconsExtended = "1.7.3"
 accompanist = "0.32.0"
@@ -17,15 +15,7 @@ android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", ver
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 compose-gradlePlugin = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }
 compose-multiplatform-gradlePlugin = { group = "org.jetbrains.compose", name = "compose-gradle-plugin", version.ref = "composeMultiplatform" }
-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-compose-compiler = { group = "androidx.compose.compiler", name = "compiler", version.ref = "composeCompiler" }
-compose-ui = { group = "androidx.compose.ui", name = "ui" }
-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-compose-material = { group = "androidx.compose.material", name = "material" }
-compose-material-icons-extended-android = { group = "androidx.compose.material", name = "material-icons-extended" }
 compose-multiplatform-material-icons-extended = { group = "org.jetbrains.compose.material", name = "material-icons-extended", version.ref = "composeMaterialIconsExtended" }
-compose-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata" }
 startup = { group = "androidx.startup", name = "startup-runtime", version.ref = "startup" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
 accompanist-systemuicontroller = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "accompanist" }
@@ -35,4 +25,3 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 xcrash = { group = "com.iqiyi.xcrash", name = "xcrash-android-lib", version.ref = "xcrash" }
 
 [bundles]
-compose-core = ["compose-ui", "compose-ui-graphics", "compose-ui-tooling-preview", "compose-material-icons-extended-android", "compose-runtime-livedata", "compose-material"]
