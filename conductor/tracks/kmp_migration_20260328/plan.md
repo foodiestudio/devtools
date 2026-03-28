@@ -11,7 +11,7 @@
     - [x] Update `AndroidCompose.kt` to use JetBrains Compose plugin logic.
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Environment and Version Alignment' (Protocol in workflow.md)
 
-## Phase 2: Convert `devtools` to Multiplatform
+## Phase 2: Convert `devtools` to Multiplatform [checkpoint: 094d2be]
 - [x] Task: Create `devtools.kmp.library` convention plugin.
     - [x] Add KMP plugin to `convention-plugins`.
     - [x] Configure `androidTarget` and basic `sourceSets`.
