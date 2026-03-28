@@ -6,7 +6,7 @@
     - [x] Commit `baseline_deps.txt` (This is a temporary file for validation).
 - [x] Task: Conductor - User Manual Verification 'Phase 0: Baseline Capture' (Protocol in workflow.md)
 
-## Phase 1: Local Version Catalog Initialization
+## Phase 1: Local Version Catalog Initialization [checkpoint: fb18167]
 - [x] Task: Identify and extract dependencies from `sharedLibs`.
     - [x] Examine `devtools/build.gradle.kts` to list all `sharedLibs.*` usage.
     - [x] Determine the specific versions for each dependency from the external `libs-versions` project or by inspecting the local dependency resolution results.
