@@ -1,5 +1,4 @@
 import com.android.build.api.dsl.LibraryDefaultConfig
-import org.jetbrains.compose.compose
 
 plugins {
     id("devtools.kmp.library")
@@ -38,21 +37,17 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(libs.okio)
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material)
-                implementation(compose.materialIconsExtended)
-                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-                implementation(compose.components.resources)
             }
         }
         
         val androidMain by getting {
             dependencies {
+                implementation(libs.bundles.compose.core)
                 implementation(libs.accompanist.systemuicontroller)
                 implementation(libs.accompanist.navigation.material)
                 implementation(libs.xcrash)
                 implementation(libs.startup)
+                implementation(libs.compose.material)
             }
         }
         
@@ -66,8 +61,10 @@ kotlin {
 
 dependencies {
     debugImplementation(libs.activity.compose)
-    debugImplementation(libs.compose.ui.tooling.preview)
 }
 
 group = "com.github.foodiestudio"
 version = "0.1.8"
+
+// Publishing for KMP is handled automatically by the KMP plugin.
+// The previous manual publishing block is incompatible with KMP layout.

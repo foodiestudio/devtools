@@ -1,15 +1,15 @@
 [versions]
 composeBom = "2023.10.01"
 composeCompiler = "1.5.3"
-composeMultiplatform = "1.5.10"
+composeMultiplatform = "1.10.3"
 accompanist = "0.32.0"
 okio = "3.6.0"
 startup = "1.1.1"
 junit = "4.13.2"
 activity = "1.9.3"
 xcrash = "3.1.0"
-agp = "8.1.0"
-kotlin = "1.9.10"
+agp = "8.12.0"
+kotlin = "2.3.10"
 
 [libraries]
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
@@ -31,13 +31,6 @@ accompanist-navigation-material = { group = "com.google.accompanist", name = "ac
 okio = { group = "com.squareup.okio", name = "okio", version.ref = "okio" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 xcrash = { group = "com.iqiyi.xcrash", name = "xcrash-android-lib", version.ref = "xcrash" }
-
-[plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
-android-library = { id = "com.android.library", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
 
 [bundles]
 compose-core = ["compose-ui", "compose-ui-graphics", "compose-ui-tooling-preview", "compose-material-icons-extended", "compose-runtime-livedata", "compose-material"]

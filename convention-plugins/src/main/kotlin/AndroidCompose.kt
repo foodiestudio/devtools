@@ -25,6 +25,6 @@ internal fun Project.configureAndroidCompose(
         }
     }
     
-    // Apply JetBrains Compose plugin
+    // Apply the JetBrains Compose plugin
     pluginManager.apply("org.jetbrains.compose")
 }
