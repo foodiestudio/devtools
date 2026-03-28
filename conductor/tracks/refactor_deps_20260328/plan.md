@@ -1,6 +1,6 @@
 # Implementation Plan: Dependency Refactoring
 
-## Phase 0: Baseline Capture
+## Phase 0: Baseline Capture [checkpoint: b0710d2]
 - [x] Task: Capture current dependencies baseline.
     - [x] Run `./gradlew :devtools:dependencies > baseline_deps.txt`
     - [x] Commit `baseline_deps.txt` (This is a temporary file for validation).
