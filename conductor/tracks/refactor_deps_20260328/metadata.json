@@ -1,0 +1,8 @@
+{
+  "track_id": "refactor_deps_20260328",
+  "type": "refactor",
+  "status": "new",
+  "created_at": "2026-03-28T12:00:00Z",
+  "updated_at": "2026-03-28T12:00:00Z",
+  "description": "Refactor dependencies: Replace sharedLibs with local project version catalog. Ensure dependencies are not changed. Use ':dependencies' gradle task to validate."
+}
