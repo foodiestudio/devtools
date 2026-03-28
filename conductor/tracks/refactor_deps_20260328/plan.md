@@ -7,13 +7,13 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 0: Baseline Capture' (Protocol in workflow.md)
 
 ## Phase 1: Local Version Catalog Initialization
-- [ ] Task: Identify and extract dependencies from `sharedLibs`.
-    - [ ] Examine `devtools/build.gradle.kts` to list all `sharedLibs.*` usage.
-    - [ ] Determine the specific versions for each dependency from the external `libs-versions` project or by inspecting the local dependency resolution results.
-- [ ] Task: Create `gradle/libs.versions.toml`.
-    - [ ] Create the `gradle` directory if it doesn't exist.
-    - [ ] Write identified versions and libraries to `gradle/libs.versions.toml`.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Local Version Catalog Initialization' (Protocol in workflow.md)
+- [x] Task: Identify and extract dependencies from `sharedLibs`.
+    - [x] Examine `devtools/build.gradle.kts` to list all `sharedLibs.*` usage.
+    - [x] Determine the specific versions for each dependency from the external `libs-versions` project or by inspecting the local dependency resolution results.
+- [x] Task: Create `gradle/libs.versions.toml`.
+    - [x] Create the `gradle` directory if it doesn't exist.
+    - [x] Write identified versions and libraries to `gradle/libs.versions.toml`.
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Local Version Catalog Initialization' (Protocol in workflow.md)
 
 ## Phase 2: Transition to Local Catalog
 - [ ] Task: Update `settings.gradle.kts` to point to the local version catalog.
