@@ -5,24 +5,21 @@ plugins {
     val launchAsApplication = false
 
     if (launchAsApplication) {
-        id("foodiestudio.android.application.compose")
+        id("devtools.android.application")
     } else {
-        id("foodiestudio.android.library.compose")
+        id("devtools.android.library")
     }
+    id("devtools.android.compose")
     id("maven-publish")
 }
 
-val launchAsApplication = project.plugins.findPlugin("foodiestudio.android.library.compose") == null
+val launchAsApplication = project.plugins.findPlugin("devtools.android.library") == null
 
 android {
     namespace = "com.github.foodiestudio.devtools"
 
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        if (!launchAsApplication) {
-            (this as LibraryDefaultConfig).consumerProguardFiles("consumer-rules.pro")
-        }
     }
 
     buildTypes {
@@ -44,17 +41,23 @@ android {
 }
 
 dependencies {
-    implementation(sharedLibs.bundles.compose.core)
-    implementation(sharedLibs.accompanist.systemuicontroller)
-    implementation(sharedLibs.accompanist.navigation.material)
-    implementation(sharedLibs.okio)
-    implementation("com.iqiyi.xcrash:xcrash-android-lib:3.1.0")
-    api(sharedLibs.startup)
-    testImplementation(sharedLibs.junit)
+    val compose = (project.extensions.getByName("compose") as org.jetbrains.compose.ComposeExtension).dependencies
+    implementation(compose.runtime)
+    implementation(compose.foundation)
+    implementation(compose.material)
+    implementation(compose.ui)
+    implementation(compose.components.resources)
+    implementation(compose.components.uiToolingPreview)
+    implementation(libs.compose.multiplatform.material.icons.extended)
+
+    implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.accompanist.navigation.material)
+    implementation(libs.okio)
+    implementation(libs.xcrash)
+    api(libs.startup)
+    testImplementation(libs.junit)
     // debugOnly
-    debugImplementation(sharedLibs.activity.compose)
-    debugImplementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
-    debugImplementation(sharedLibs.compose.material)
+    debugImplementation(libs.activity.compose)
 }
 
 group = "com.github.foodiestudio"

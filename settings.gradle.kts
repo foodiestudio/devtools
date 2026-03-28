@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("convention-plugins")
     repositories {
         google()
         mavenCentral()
@@ -21,11 +22,6 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven("https://jitpack.io")
-    }
-    versionCatalogs {
-        create("sharedLibs") {
-            from("io.github.foodiestudio:libs-versions:2023.10.01")
-        }
     }
 }
 rootProject.name = "DevTools"

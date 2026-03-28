@@ -81,7 +81,7 @@ internal fun KibanaQuerySheet(
     }
 
     var filters by remember {
-        mutableStateOf(filterParams.takeIf { it.isNotEmpty() }
+        mutableStateOf<List<FilterParam>>(filterParams.takeIf { it.isNotEmpty() }
             ?.map { FilterParam(it.first, it.second) } ?: emptyList())
     }
 
@@ -122,9 +122,9 @@ internal fun KibanaQuerySheet(
                         }
                         runCatching {
                             val url = kibanaQuery(siteUrl, index) {
-                                filters.filter { it.isNotBlank }.forEach {
+                                filters.filter { it.isNotBlank }.forEach { filterParam ->
                                     filter {
-                                        it.key.trim() to it.value.trim()
+                                        filterParam.key.trim() to filterParam.value.trim()
                                     }
                                 }
                             }
@@ -235,14 +235,14 @@ internal fun KibanaQuerySheet(
                 )
             }
         }
-        itemsIndexed(filters) { index, item ->
-            FilterValueItem(item, onUpdate = {
+        itemsIndexed(filters) { idx, filterParam ->
+            FilterValueItem(filterParam, onUpdate = { updated ->
                 filters = filters.toMutableList().apply {
-                    set(index, it)
+                    set(idx, updated)
                 }
             }, onDelete = {
                 filters = filters.toMutableList().apply {
-                    removeAt(index)
+                    removeAt(idx)
                 }
             })
         }
