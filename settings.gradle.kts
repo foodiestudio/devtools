@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("convention-plugins")
     repositories {
         google()
         mavenCentral()
@@ -25,4 +26,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "DevTools"
 include(":devtools")
-include(":build-logic")
