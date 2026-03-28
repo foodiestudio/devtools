@@ -23,7 +23,7 @@
     - [x] Replace `sharedLibs.*` references with `libs.*` references.
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Transition to Local Catalog' (Protocol in workflow.md)
 
-## Phase 3: Validation and Finalization
+## Phase 3: Validation and Finalization [checkpoint: 07a6eff]
 - [x] Task: Validate dependency graph consistency.
     - [x] Run `./gradlew :devtools:dependencies > post_refactor_deps.txt`.
     - [x] Compare `baseline_deps.txt` and `post_refactor_deps.txt` to ensure no differences.
