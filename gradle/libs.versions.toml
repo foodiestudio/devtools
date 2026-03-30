@@ -1,7 +1,7 @@
 [versions]
 composeMultiplatform = "1.10.3"
 composeMaterialIconsExtended = "1.7.3"
-accompanist = "0.32.0"
+accompanist = "0.36.0"
 okio = "3.6.0"
 startup = "1.1.1"
 junit = "4.13.2"
